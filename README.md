@@ -235,3 +235,26 @@ exports = log; //cant do because it's a reference to module.exports
 - if you run `console.log(__filename)`, it will show you the path this module lives under
 
 
+## Path Module (Built In)
+```
+app.js
+
+const path = require ('path');
+var pathObj = path.parse(__filename);
+```
+
+```
+node app.js
+
+{
+  root: '/',
+  dir: '/Users/melanietran/personal_projects/node_app',
+  base: 'app.js',
+  ext: '.js',
+  name: 'app'
+}
+```
+- [docs](https://nodejs.org/dist/latest-v12.x/docs/api/path.html) of functions available for a path module
+
+- path of the folder containing this file
+
