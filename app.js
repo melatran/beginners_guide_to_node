@@ -1,10 +1,22 @@
-const EventEmitter = require('events'); //this is a class
-const emitter = new EventEmitter(); //this is an object
+const EventEmitter = require('events');
 
-//register listener
-emitter.on('messageLogged', function(){
-  console.log('Listener called');
+const Logger = require('./logger');
+const logger = new Logger();
+
+//change from emitter to logger
+//use an instance of a custom class that extends the EventEmitter
+//when logger object raises an event, register this listener
+logger.on('messageLogged', (arg) => {
+  console.log('Listener called', arg);
 })
 
-emitter.emit('messageLogged') //make a noise, produce - signal an event has happened
-//every a message is made, an event will be raise
+logger.log('message');
+
+//Moved raising an event to our logger module; don't belong in app
+
+//event listener won't be called since the EventEmitters are different, there are two different objects called emitter
+
+//don't work with EventEmitter directly so create a class called Log
+
+//load in the Logger class and register listener on the logger object
+

@@ -332,3 +332,35 @@ emitter.emit('messageLogged')
 
 - order is important, listener before event
 
+**Event Arguments**
+
+```
+emitter.on('messageLogged', function(arg){
+  console.log('Listener called', arg);
+})
+
+emitter.emit('messageLogged', { id: 1, url: 'http://' });
+
+==> Listener called { id: 1, url: 'http://' }
+```
+
+- often when we want to raise an event, we want to send data
+
+- don't do `emitter.emit('messageLogged', 1, 'url');`
+
+- better to encapsulate those arguments within the object
+
+- convention `arg` or `e`
+
+- can pass data about the event that just happened
+
+- ES6 arrow syntax
+
+```
+emitter.on('messageLogged', (arg) => {
+  console.log('Listener called', arg);
+})
+```
+
+
+
