@@ -362,5 +362,15 @@ emitter.on('messageLogged', (arg) => {
 })
 ```
 
+## HTTP Module (Built In)
+- used to create network apps
 
+- create webserver that listens for HTTP requests on the port; backend service
 
+- many can use the same methods as EventEmitter
+
+- not using this HTTP module to build api because the routes become complex
+
+- so we use **Express** framework to build the backend service
+
+- express is built on top of the HTTP module in Node

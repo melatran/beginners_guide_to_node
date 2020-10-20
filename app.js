@@ -1,22 +1,25 @@
-const EventEmitter = require('events');
 
-const Logger = require('./logger');
-const logger = new Logger();
+const http = require('http');
 
-//change from emitter to logger
-//use an instance of a custom class that extends the EventEmitter
-//when logger object raises an event, register this listener
-logger.on('messageLogged', (arg) => {
-  console.log('Listener called', arg);
+// const server = http.createServer();
+// const server = http.createServer(function(req, res));
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    res.write('Hello World');
+    res.end();
+  }
+
+  if (req.url === '/api/courses') {
+    res.write(JSON.stringify([1, 2, 3]))
+    res.end();
+  }
+});
+
+server.on('connection', (socket) => {
+  console.log('New Connection...')
 })
+server.listen(3000);
 
-logger.log('message');
+console.log('Listening on port 3000...');
 
-//Moved raising an event to our logger module; don't belong in app
-
-//event listener won't be called since the EventEmitters are different, there are two different objects called emitter
-
-//don't work with EventEmitter directly so create a class called Log
-
-//load in the Logger class and register listener on the logger object
-
+//the if statements represent the routes
