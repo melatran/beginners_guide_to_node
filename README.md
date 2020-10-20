@@ -309,3 +309,26 @@ fs.readdir('./', function(err, files) {
 - these are the files in my machine inside this current folder
 
 - use async methods instead of sync
+
+## Events Module
+```
+const EventEmitter = require('events'); //this is a class
+const emitter = new EventEmitter(); //this is an object
+
+emitter.on('messageLogged', function(){
+  console.log('Listener called');
+})
+
+emitter.emit('messageLogged')
+
+==> Listener called
+```
+
+- events indicate that something has happened within our app
+
+- [docs](https://nodejs.org/dist/latest-v12.x/docs/api/events.html)
+
+- name convention indicates its a class `EventEmitter` with related methods and properties
+
+- order is important, listener before event
+
