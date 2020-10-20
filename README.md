@@ -241,12 +241,8 @@ app.js
 
 const path = require ('path');
 var pathObj = path.parse(__filename);
-```
 
-```
-node app.js
-
-{
+==> node app.js
   root: '/',
   dir: '/Users/melanietran/personal_projects/node_app',
   base: 'app.js',
@@ -258,3 +254,27 @@ node app.js
 
 - path of the folder containing this file
 
+## OS Module (Built In)
+
+```
+const os = require ('os');
+
+var totalMemory = os.totalmem();
+var freeMemory = os.freemem();
+
+console.log(`Total Memory: ${totalMemory}`)
+console.log(`Free Memory: ${freeMemory}`)
+
+==> node app.js
+Total Memory: 8589934592
+Free Memory: 260997120
+```
+- how to get information about the current operating system
+
+- [docs](https://nodejs.org/dist/latest-v12.x/docs/api/os.html) about the functions available for the OS module
+
+- totalmem and freemem are defined functions
+
+- before node, you were unable to get this information but node allows JS code to be executed outside of the browser
+
+- you can build server that listens for an API request
