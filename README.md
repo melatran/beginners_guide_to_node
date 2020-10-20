@@ -235,7 +235,7 @@ exports = log; //cant do because it's a reference to module.exports
 - if you run `console.log(__filename)`, it will show you the path this module lives under
 
 
-## Path Module (Built In)
+### Path Module (Built In)
 ```
 app.js
 
@@ -254,7 +254,7 @@ var pathObj = path.parse(__filename);
 
 - path of the folder containing this file
 
-## OS Module (Built In)
+### OS Module (Built In)
 
 ```
 const os = require ('os');
@@ -275,6 +275,37 @@ Free Memory: 260997120
 
 - totalmem and freemem are defined functions
 
-- before node, you were unable to get this information but node allows JS code to be executed outside of the browser
+- before node, you were unable to get this information but node allows JS code to be executed outside of the browser which allows us to build APIs
 
-- you can build server that listens for an API request
+### File System Module (Built In)
+
+**Sync Function**
+
+```
+const fs = require('fs');
+const files = fs.readdirSync('./')
+
+console.log(files);
+
+==>[ '.git', 'README.md', 'app.js', 'logger.js' ]
+```
+
+**Async Function**
+
+```
+const fs = require('fs');
+
+fs.readdir('./', function(err, files) {
+  if (err) console.log('Error', err);
+  else console.log('Result', files);
+})
+
+==> Result [ '.git', 'README.md', 'app.js', 'logger.js' ]
+==> Error [Error: ENOENT: no such file or directory, scandir '@']
+```
+
+- [docs](https://nodejs.org/dist/latest-v12.x/docs/api/fs.html)
+
+- these are the files in my machine inside this current folder
+
+- use async methods instead of sync

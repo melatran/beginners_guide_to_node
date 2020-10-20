@@ -1,16 +1,10 @@
-const os = require ('os');
+const fs = require('fs');
 
-var totalMemory = os.totalmem();
-var freeMemory = os.freemem();
+// const files = fs.readdirSync('$')
+// console.log(files);
 
-// console.log('Total Memory: ' + totalMemory);
-// console.log('Free Memory: ' + freeMemory);
+fs.readdir('./', function(err, files) {
+  if (err) console.log('Error', err);
+  else console.log('Result', files);
+})
 
-// ES6 / ES2015 : ECMAScript 6
-//defines what features are available in JS
-//build string without concatnation
-
-//Template String
-// use backticks (``) and ${}
-console.log(`Total Memory: ${totalMemory}`)
-console.log(`Free Memory: ${freeMemory}`)
